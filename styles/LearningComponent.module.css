@@ -1,0 +1,38 @@
+.container {
+    grid-row: 1 / 4;
+    color: white;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+}
+
+.image {
+    width: 100%;
+    height: auto;
+    object-fit: fill;
+    margin-top: 5px;
+}
+
+.data {
+    position: fixed;
+    color: white;
+    margin: 20px;
+}
+
+.simulationButton {
+    border: none;
+    outline: none;
+    padding: 5px 15px;
+    border-radius: 20px;
+}
+
+.simulationButton:hover {
+    cursor: pointer;
+    background-color: lightgray;
+}
+
+.yellow {
+    color: yellow;
+}

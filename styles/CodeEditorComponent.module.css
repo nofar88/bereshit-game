@@ -1,0 +1,21 @@
+.container {
+    height: 100%;
+    overflow-y: scroll;
+}
+
+.tabs {
+    display: flex;
+    gap: 1px;
+}
+
+.tabs * {
+    color: white;
+    background-color: #272822;
+    padding: 5px 15px;
+    border-radius: 15px 15px 0 0;
+    cursor: pointer;
+}
+
+.tabs .active {
+    background-color: #6b6b6b;
+}

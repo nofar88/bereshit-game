@@ -1,0 +1,9 @@
+.container {
+    display: grid;
+    grid-template: 1fr 1fr / 1fr 1fr;
+}
+
+.graph {
+    flex: 1;
+    height: 50vh;
+}
