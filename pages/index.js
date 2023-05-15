@@ -114,6 +114,7 @@ export default function Home() {
     }
 
     const updateFinish = (status) => {
+        setViewState(ViewState.Done);
         if (status) {
             toast.error("The spacecraft crashed. It's okay, try again.");
             setCrashed(true);
@@ -122,11 +123,11 @@ export default function Home() {
                 icon: '👏',
             });
         }
-        setViewState(ViewState.Done);
     }
 
     const handleError = (message) => {
         toast.error(message);
+        setViewState(ViewState.Done);
     }
 
     let i = 1;
