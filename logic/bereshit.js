@@ -12,6 +12,7 @@ export const SECOND_BURN = 0.009; //liter per sec 0.6 liter per m'
 export const ALL_BURN = MAIN_BURN + 8 * SECOND_BURN;
 
 export const INIT_ALT = 13748;
+export const INIT_HS = 932;
 
 export default class Bereshit {
     constructor(initialData, altitudePidData, anglePidData, pidUpdateCode, spaceCraftCompute) {

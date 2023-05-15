@@ -8,5 +8,6 @@ export const Key = {
 export const ViewState = {
     Learning: 0,
     DataEntry: 1,
-    Running: 2
+    Running: 2,
+    Done: 3,
 }

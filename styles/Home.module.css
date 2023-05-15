@@ -34,8 +34,13 @@
     outline: none;
     margin: auto 0;
     height: fit-content;
+}
+
+.buttonsBar {
     z-index: 10;
     position: absolute;
-    right: 22vw;
+    right: 20vw;
     bottom: 60px;
+    display: flex;
+    gap: 10px;
 }

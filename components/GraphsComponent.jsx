@@ -35,9 +35,9 @@ export const options = {
     },
 };
 
-export default function GraphsComponent({data: {altitude, fuel, verticalSpeed, NN, time}}) {
+export default function GraphsComponent({data: {altitude, fuel, verticalSpeed, horizontalSpeed, NN, time}}) {
     const [labels, setLabels] = useState([]);
-    const [data, setData] = useState({altitude: [], fuel: [], verticalSpeed: [], NN: []});
+    const [data, setData] = useState({altitude: [], fuel: [], verticalSpeed: [], NN: [], horizontalSpeed: []});
 
     useEffect(() => {
         setLabels(prevState => [...prevState, time])
@@ -58,6 +58,20 @@ export default function GraphsComponent({data: {altitude, fuel, verticalSpeed, N
     useEffect(() => {
         setData(prev => ({...prev, NN: [...prev.NN, NN]}));
     }, [NN]);
+
+    useEffect(() => {
+        setData(prev => ({...prev, horizontalSpeed: [...prev.horizontalSpeed, horizontalSpeed]}));
+    }, [horizontalSpeed]);
+
+    // useEffect(() => {
+    //     setData(prev => ({
+    //         altitude: [...prev.altitude, altitude],
+    //         fuel: [...prev.fuel, fuel],
+    //         verticalSpeed: [...prev.verticalSpeed, verticalSpeed],
+    //         horizontalSpeed: [...prev.horizontalSpeed, horizontalSpeed],
+    //         NN: [...prev.NN, NN],
+    //     }));
+    // }, [altitude, fuel, verticalSpeed, horizontalSpeed, NN, time]);
 
     return (
         <div className={styles.container}>
@@ -96,6 +110,12 @@ export default function GraphsComponent({data: {altitude, fuel, verticalSpeed, N
                             data: data.verticalSpeed,
                             borderColor: 'rgb(180,255,99)',
                             backgroundColor: 'rgba(180,255,99,0.5)',
+                        },
+                        {
+                            label: 'Horizontal Speed',
+                            data: data.horizontalSpeed,
+                            borderColor: 'rgb(255,169,99)',
+                            backgroundColor: 'rgba(255,169,99,0.5)',
                         },
                     ],
                 }}/>
