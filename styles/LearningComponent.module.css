@@ -2,16 +2,18 @@
     grid-row: 1 / 4;
     color: white;
     padding: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 3px;
+    display: grid;
+    grid-template: auto 1fr 1fr auto / 1fr;
+}
+
+.container div {
+    font-size: 0.8rem;
 }
 
 .image {
     width: 100%;
-    height: auto;
-    object-fit: fill;
+    height: 100%;
+    object-fit: scale-down;
     margin-top: 5px;
 }
 

@@ -34,11 +34,15 @@ export default function LearningComponent({onKeyPressed, onClick, data, fuel}) {
                 <br/>Angle: {data.angle.toFixed(2)}°
                 <span className={styles.yellow}><br/>Estimated fuel: {fuel.toFixed(2)}</span></p>
             <div className={styles.container}>
-                <h1>The Bersheet simulation</h1>
-                <p>This game aims to teach us a basic understanding of how to make a spacecraft land on the moon without
-                    crashing.<br/>The game relies on the data of the Bersheet spaceship as it crashed on the moon.<br/>
-                    <span className={styles.yellow}>Your goal is to land the spacecraft on the moon with as much fuel as
+                <div>
+                    <h1>The Bersheet simulation</h1>
+                    <p>This game aims to teach us a basic understanding of how to make a spacecraft land on the moon
+                        without
+                        crashing.<br/>The game relies on the data of the Bersheet spaceship as it crashed on the
+                        moon.<br/>
+                        <span className={styles.yellow}>Your goal is to land the spacecraft on the moon with as much fuel as
                     possible without crashing</span></p>
+                </div>
                 <img src="/altitude-instruction.jpg"
                      alt="altitude-instruction"
                      className={styles.image}/>
