@@ -3,6 +3,7 @@ import Image from "next/image";
 import {INIT_ALT, INIT_HS} from "@/logic/bereshit";
 import styles from '../styles/BereshitComponent.module.css';
 
+// קומפוננטת חללית - מראה את התמונה ומקבלת את הנתונים ומשנה את המיקום במסך
 export default function BereshitComponent({data: {altitude, angle, horizontalSpeed}}) {
     const calcHeight = () => {
         if (!altitude) return '0px';

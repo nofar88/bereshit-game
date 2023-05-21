@@ -11,6 +11,7 @@ import LearningComponent from "@/components/LearningComponent";
 import {Key, ViewState} from "@/util/enums";
 import {useRouter} from "next/router";
 
+// מסך ראשי - מכיל את כל הנראות וערכים התחלתיים
 const INITIAL_DATA = {
     verticalSpeed: 24.8,
     horizontalSpeed: INIT_HS,
@@ -83,6 +84,7 @@ const TABS = [
 let timeouts = [];
 let allData = [];
 
+// מצבים משתנים
 export default function Home() {
     const [data, setData] = useState(INITIAL_DATA);
     const [altitudePidData, setAltitudePidData] = useState(ALTITUDE_PID_DATA);
@@ -92,7 +94,7 @@ export default function Home() {
     const [tabs, setTabs] = useState(TABS);
     const [activeTab, setActiveTab] = useState(0);
 
-
+    // חישוב דלק
     const [fuel, setFuel] = useState(INITIAL_DATA.fuel);
     const updateFuel = (data) => {
         if (typeof data === 'object') {
@@ -129,7 +131,7 @@ export default function Home() {
         toast.error(message);
         setViewState(ViewState.Done);
     }
-
+    // עדכונים על גבי מצב החללית - קריסה, הצלחה,או שגיאה כללית
     let i = 1;
     const handleUpdate = useCallback((newData) => {
         let handler;
@@ -168,7 +170,7 @@ export default function Home() {
         tabs[activeTab].code = value;
         setTabs(newTabs);
     }, [activeTab, tabs]);
-
+    // כפתור התחלה , איפוס
     const handleClick = useCallback(() => {
         if (viewState === ViewState.Learning) {
             setViewState(ViewState.DataEntry);
@@ -203,14 +205,8 @@ export default function Home() {
     }
 
 
+    // הורדת שמירת נתונים לאקסל - מייצר את הנתונים ומוריד בקוד השני.
     const csvMaker = function (objArray) {
-        // const csvRows = [];
-        // const headers = Object.keys(data[0]);
-        // csvRows.push(headers.join(','));
-        // debugger
-        // const values = data.map(entry => Object.values(entry).join(','));
-        // csvRows.push(...values);
-        // return csvRows.join('\n');
         const array = typeof objArray !== 'object' ? JSON.parse(objArray) : objArray;
         let csv = '';
 
@@ -240,11 +236,11 @@ export default function Home() {
         const csvData = csvMaker(allData);
         download(csvData);
     }
-
+    // שהמידע משתנה במהלך הסימולציה אז המשתנה alldata שומר את כל הנתונים במהלך הסימולציה
     useEffect(() => {
         allData = [...allData, data];
     }, [data]);
-
+    // תצוגה
     return (
         <>
             <Head>
@@ -256,11 +252,14 @@ export default function Home() {
             <main className={styles.main}>
                 <Toaster position="bottom-center"
                          reverseOrder={false}/>
+                {/*חללית*/}
                 <SimulatorComponent data={data} crashed={crashed}/>
+                {/*קומפוננטת למידה - מעביר למסך הלימדה מסך התחלתי בו מלמדים , יחד עם עם אפשרות להוזיז את הכפתורים של החללית*/}
                 {viewState === ViewState.Learning && <LearningComponent onKeyPressed={handleKeyPressed}
                                                                         onClick={handleClick}
                                                                         data={data}
                                                                         fuel={fuel}/>}
+                {/*הזנת לימודים : קומפוננטתה שמשיגה את הנתונים וקומפוננתה של הקוד איפה שאפשר לערוך את הקוד*/}
                 {viewState === ViewState.DataEntry && <>
                     <ParametersComponent initialData={data}
                                          onInitialChange={updateInitialParams}
@@ -272,8 +271,10 @@ export default function Home() {
                                          onCodeChange={onCodeChange}
                                          onActiveTabChange={setActiveTab}
                                          activeTab={activeTab}/>
+                    {/*כפתור שיגור*/}
                     <button className={styles.playButton} onClick={handleClick}>Lunch</button>
                 </>}
+                {/*אם רצים או סיים לרוץ מראה את הגרפים ואת כפתור ההורדה ואיפוס*/}
                 {(viewState === ViewState.Running || viewState === ViewState.Done) && <>
                     <GraphsComponent data={data}/>
                     <div className={styles.buttonsBar}>

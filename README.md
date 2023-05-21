@@ -12,3 +12,4 @@ In addition, we used Google to design the various screens.
 ## Link to the game
 The game can be found [here](https://bereshit-game.vercel.app/).
 The game instructions are detailed on the site itself.
+Link to the game instructions: [here](https://youtu.be/ziydRKLVJWg/).

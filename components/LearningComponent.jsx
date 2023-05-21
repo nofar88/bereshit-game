@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import styles from '../styles/LearningComponent.module.css';
 import {Key} from "@/util/enums";
-
+// קומפוננטת למידה - מסך התחלתי וחיצים
 export default function LearningComponent({onKeyPressed, onClick, data, fuel}) {
     useEffect(() => {
         const handler = (event) => {

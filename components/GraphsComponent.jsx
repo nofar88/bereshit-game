@@ -63,15 +63,6 @@ export default function GraphsComponent({data: {altitude, fuel, verticalSpeed, h
         setData(prev => ({...prev, horizontalSpeed: [...prev.horizontalSpeed, horizontalSpeed]}));
     }, [horizontalSpeed]);
 
-    // useEffect(() => {
-    //     setData(prev => ({
-    //         altitude: [...prev.altitude, altitude],
-    //         fuel: [...prev.fuel, fuel],
-    //         verticalSpeed: [...prev.verticalSpeed, verticalSpeed],
-    //         horizontalSpeed: [...prev.horizontalSpeed, horizontalSpeed],
-    //         NN: [...prev.NN, NN],
-    //     }));
-    // }, [altitude, fuel, verticalSpeed, horizontalSpeed, NN, time]);
 
     return (
         <div className={styles.container}>

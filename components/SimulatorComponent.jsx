@@ -2,7 +2,7 @@ import React, {useCallback, useEffect, useRef} from "react";
 import * as THREE from "three";
 import styles from '../styles/SimulatorComponent.module.css';
 import BereshitComponent from "@/components/BereshitComponent";
-
+// זמן שיגור מציג את החללית והירח והעשן
 export default function SimulatorComponent({data, crashed}) {
     const moonRef = useRef(null);
 

@@ -5,7 +5,7 @@ export default class PID {
         this.D = d;
         this.firstRun = true;
         this.integralError = 0;
-
+        // מנסה להמיר את הקוד החדש לפונקציה - בודק שזה תקין , אם מצליח מעולה אם לא מחזיר לקוד המקורי
         try {
             this.update = new Function('return ' + update)().bind(this);
         } catch (e) {

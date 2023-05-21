@@ -19,7 +19,7 @@ export default class SpaceCraft {
         this.NN = NN;
         this.moon = Moon;
         this.globals = {ALL_BURN, WEIGHT_EMP};
-
+        // מנסה להמיר את הקוד החדש לקוד שיעבוד אם כן מעולה אם לא אז מחזיר לקוד המקורי
         try {
             this.computeNextStep = new Function('return ' + compute)().bind(this);
         } catch (e) {

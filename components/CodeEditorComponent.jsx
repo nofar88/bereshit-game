@@ -4,6 +4,7 @@ import {javascript} from '@codemirror/lang-javascript';
 import {okaidia} from '@uiw/codemirror-theme-okaidia';
 import styles from '../styles/CodeEditorComponent.module.css'
 
+// קומפננת עריכת קוד בשני קודים שהבאנו את האפשרות לערוך
 export default function CodeEditorComponent({tabs, onCodeChange, activeTab, onActiveTabChange}) {
     return (
         <div className={styles.container}>

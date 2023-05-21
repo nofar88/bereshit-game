@@ -1,6 +1,6 @@
 import React from "react";
 import styles from '../styles/ParametersComponent.module.css';
-
+//מסך 2 מסך שמתקבל בו הנתוניםו והקוד דואפשר לשנות ידני
 export default function ParametersComponent({altitudePIDData, onAltitudeChange, anglePidData, onAngleChange, initialData, onInitialChange}) {
     return (
         <div className={styles.container}>
